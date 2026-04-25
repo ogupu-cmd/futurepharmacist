@@ -50,15 +50,15 @@ if st.session_state.task == "1b":
 elif st.session_state.task == "2b":
     st.subheader("Aufgabe 2b")
 
-    choice = st.selectbox("Was prüfen?", ["1", "2", "3"])
+    choice = st.selectbox("Was prüfen?", ["v(r) WW ohne Salz [J]", "v(r) WW mit Salz [J]", "Debye-Länge [m]"])
 
     sol = st.number_input("Resultat eingeben", format="%.6e")
 
     if st.button("Prüfen"):
 
-        if choice == "1":
+        if choice == "v(r) WW ohne Salz [J]":
             correct = -1.52e-20
-        elif choice == "2":
+        elif choice == "v(r) WW mit Salz [J]":
             correct = -1.34e-20
         else:
             correct = 3.13e-9
@@ -74,19 +74,25 @@ elif st.session_state.task == "3b":
 
     choice = st.selectbox(
         "Was prüfen?",
-        ["1", "2", "3", "4", "5", "6", "7"]
+        ["Volumen Benzolmolekül [m^3]", 
+         "v(r) im Vakuum [J]", 
+         "v(r) in Cyclohexan [J]", 
+         "v(r) in Aceton [J]", 
+         "Exzesspolarisierbarkeit des Benzols im Vakuum [Cm^2/V]", 
+         "Exzesspolarisierbarkeit des Benzols im Cyclohexan [Cm^2/V]", 
+         "Exzesspolarisierbarkeit des Benzols im Aceton [Cm^2/V]"]
     )
 
     sol = st.number_input("Resultat eingeben", format="%.6e")
 
     values = {
-        "1": 1.4738e-28,
-        "2": -1.2068e-21,
-        "3": -7.9586e-23,
-        "4": 8.2727e-23,
-        "5": 1.164e-23,
-        "6": 3.133e-23,
-        "7": -3.42e-23
+        "Volumen Benzolmolekül [m^3]": 1.4738e-28,
+        "v(r) im Vakuum [J]": -1.2068e-21,
+        "v(r) in Cyclohexan [J]": -7.9586e-23,
+        "v(r) in Aceton [J]": 8.2727e-23,
+        "Exzesspolarisierbarkeit des Benzols im Vakuum [Cm^2/V]": 1.164e-23,
+        "Exzesspolarisierbarkeit des Benzols im Cyclohexan [Cm^2/V]": 3.133e-23,
+        "Exzesspolarisierbarkeit des Benzols im Aceton [Cm^2/V]": -3.42e-23
     }
 
     if st.button("Prüfen"):
