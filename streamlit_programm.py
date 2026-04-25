@@ -29,7 +29,7 @@ if st.session_state.task == "1b":
         }
     )
 
-    sol = st.text_input("Ergebnis [mol/L]")
+    sol = st.text_input("Ergebnis für Ionenstärke [mol/L]")
 
     solutions = {
         "KCl": 0.5,
