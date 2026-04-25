@@ -52,7 +52,7 @@ elif st.session_state.task == "2b":
 
     choice = st.selectbox("Was prüfen?", ["v(r) WW ohne Salz [J]", "v(r) WW mit Salz [J]", "Debye-Länge [m]"])
 
-    sol = st.number_input("Resultat eingeben", format="%.6e")
+    sol = st.number_input("Resultat eingeben z.B. 1.4e-22", format="%.6e")
 
     if st.button("Prüfen"):
 
@@ -83,7 +83,7 @@ elif st.session_state.task == "3b":
          "Exzesspolarisierbarkeit des Benzols im Aceton [Cm^2/V]"]
     )
 
-    sol = st.number_input("Resultat eingeben", format="%.6e")
+    sol = st.number_input("Resultat eingeben z.B. 1.9e-27", format="%.6e")
 
     values = {
         "Volumen Benzolmolekül [m^3]": 1.4738e-28,
