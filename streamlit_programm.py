@@ -33,11 +33,11 @@ if st.session_state.task == "1b":
     sol = st.number_input("Ergebnis [mol/L]", format="%.6f")
 
     solutions = {
-        "1": 0.5,
-        "2": 1.5,
-        "3": 1.5,
-        "4": 0.4,
-        "5": 0.2
+        "KCl": 0.5,
+        "CaCl2": 1.5,
+        "Mg(CH3COO)": 1.5,
+        "CuSO4": 0.4,
+        "CuSO4": 0.2
     }
 
     if st.button("Prüfen"):
