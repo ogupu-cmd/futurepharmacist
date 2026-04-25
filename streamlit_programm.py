@@ -1,8 +1,6 @@
 import streamlit as st
 
 st.title("Physikalische Chemie – Ü7 – Resultatkontrolle")
-st.text("Alle Resultate die max. '10%' grösser oder kleiner als die Musterlösungen sind
-gelten als korrekt")
 # ---------------- SESSION STATE ----------------
 if "task" not in st.session_state:
     st.session_state.task = None
