@@ -22,11 +22,11 @@ if st.session_state.task == "1b":
     solut = st.selectbox(
         "Salzlösung auswählen",
         {
-            "1": "KCl",
-            "2": "CaCl2",
-            "3": "Mg(CH3COO)",
-            "4": "CuSO4",
-            "5": "NaHCO3 + Na2CO3"
+            "KCl",
+            "CaCl2",
+            "Mg(CH3COO)",
+            "CuSO4",
+            "NaHCO3 + Na2CO3"
         }
     )
 
