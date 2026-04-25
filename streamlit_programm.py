@@ -37,11 +37,11 @@ if st.session_state.task == "1b":
         "CaCl2": 1.5,
         "Mg(CH3COO)": 1.5,
         "CuSO4": 0.4,
-        "CuSO4": 0.2
+        "NaHCO3 + Na2CO3": 0.2
     }
 
     if st.button("Prüfen"):
-        if abs(float(sol) - solutions[solut]) < 1e-6:
+        if abs(float(sol) == solutions[solut]):
             st.success("Richtig")
         else:
             st.error("Leider falsch")
