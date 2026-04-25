@@ -30,7 +30,7 @@ if st.session_state.task == "1b":
         }
     )
 
-    sol = st.number_input("Ergebnis [mol/L]", format="%.6f")
+    sol = st.text_input("Ergebnis [mol/L]", format="%.6f")
 
     solutions = {
         "KCl": 0.5,
@@ -41,7 +41,7 @@ if st.session_state.task == "1b":
     }
 
     if st.button("Prüfen"):
-        if abs(sol - solutions[solut]) < 1e-6:
+        if abs(float(sol) - solutions[solut]) < 1e-6:
             st.success("Richtig")
         else:
             st.error("Leider falsch")
