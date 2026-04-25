@@ -30,7 +30,7 @@ if st.session_state.task == "1b":
         }
     )
 
-    sol = st.text_input("Ergebnis [mol/L]", format="%.6f")
+    sol = st.text_input("Ergebnis [mol/L]")
 
     solutions = {
         "KCl": 0.5,
@@ -52,7 +52,7 @@ elif st.session_state.task == "2b":
 
     choice = st.selectbox("Was prüfen?", ["v(r) WW ohne Salz [J]", "v(r) WW mit Salz [J]", "Debye-Länge [m]"])
 
-    sol = st.number_input("Resultat eingeben z.B. 1.4e-22", format="%.6e")
+    sol = st.text_input("Resultat eingeben z.B. 1.4e-22")
 
     if st.button("Prüfen"):
 
@@ -63,7 +63,7 @@ elif st.session_state.task == "2b":
         else:
             correct = 3.13e-9
 
-        if abs(1 - sol / correct) <= 0.05:
+        if abs(1 - float(sol) / correct) <= 0.05:
             st.success("Richtig.")
         else:
             st.error("Leider falsch.")
@@ -83,7 +83,7 @@ elif st.session_state.task == "3b":
          "Exzesspolarisierbarkeit des Benzols im Aceton [Cm^2/V]"]
     )
 
-    sol = st.number_input("Resultat eingeben z.B. 1.9e-27", format="%.6e")
+    sol = st.text_input("Resultat eingeben z.B. 1.9e-27")
 
     values = {
         "Volumen Benzolmolekül [m^3]": 1.4738e-28,
@@ -98,7 +98,7 @@ elif st.session_state.task == "3b":
     if st.button("Prüfen"):
         correct = values[choice]
 
-        if abs(1 - sol / correct) <= 0.05:
+        if abs(1 - float(sol) / correct) <= 0.05:
             st.success("Richtig.")
         else:
             st.error("Leider falsch.")
