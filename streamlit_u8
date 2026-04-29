@@ -1,11 +1,6 @@
 import streamlit as st
 
 st.title("Physikalische Chemie – Ü8 – Resultatkontrolle")
-
-# ---------------- SESSION STATE ----------------
-if "task" not in st.session_state:
-    st.session_state.task = ""
-
 # ---------------- AUFGABE AUSWÄHLEN ----------------
 st.session_state.task = st.selectbox(
     "Welche Aufgabe?",
@@ -26,58 +21,103 @@ if st.session_state.task == "1":
     sol = st.text_input("Resultat eingeben z.B. 2.2")
 
     if st.button("Prüfen"):
-        try:
-            sol = float(sol)
 
-            if choice == "lmax, Amphiphil A [nm]":
-                correct = 2.431
-            elif choice == "lmax Amphiphil B [nm]":
-                correct = 1.672
-            elif choice == "v Amphiphil A [nm^3]":
-                correct = 0.3502
-            else:
-                correct = 1.0232
+        if choice == "lmax, Amphiphil A [nm]":
+            correct = 2.431
+        elif choice == "lmax Amphiphil B [nm]":
+            correct = 1.672
+        elif choice == "v Amphiphil A [nm^3]":
+            correct = 0.3502 
+        else:
+            correct = 1.0232
 
-            if abs(1 - sol / correct) <= 0.05:
-                st.success("Richtig.")
-            else:
-                st.error("Leider falsch.")
-        except:
-            st.error("Bitte eine Zahl eingeben.")
+        if abs(1 - float(sol) / correct) <= 0.05:
+            st.success("Richtig.")
+        else:
+            st.error("Leider falsch.")
+
+# ===================== 3a =====================
+elif st.session_state.task == "3a":
+    st.subheader("Aufgabe 3a")
+    st.text("Aggregationszahl M")
+    sol = st.text_input("Resultat eingeben")
+    correct = 56
+
+    if st.button("Prüfen"):
+        if abs(1 - float(sol) / correct) <= 0.05:
+            st.success("Richtig.")
+        else:
+            st.error("Leider falsch.")
 
 # ===================== 3b =====================
 elif st.session_state.task == "3b":
     st.subheader("Aufgabe 3b")
 
-    choice = st.selectbox("Was prüfen?", [
-        "Packungsparameter P",
-        "Form der Mizelle"
-    ])
-
+    choice = st.selectbox(
+        "Was prüfen?",
+        ["Packungsparameter P", "Form der Mizelle"]
+    )
+    
     if choice == "Packungsparameter P":
-        sol = st.text_input("Resultat eingeben")
+        sol = st.text_input("Resultat eingeben z.B. 2.2")
     else:
         sol = st.selectbox("Form auswählen", [
             "perfekt kugelförmig",
             "leicht oval"
         ])
-
+    
     if st.button("Prüfen"):
         if choice == "Packungsparameter P":
-            try:
-                sol = float(sol)
-                correct = 0.37
-                if abs(1 - sol / correct) <= 0.05:
-                    st.success("Richtig.")
-                else:
-                    st.error("Leider falsch.")
-            except:
-                st.error("Bitte eine Zahl eingeben.")
+            correct = 0.37
+            if abs(1 - float(sol) / correct) <= 0.05:
+                st.success("Richtig.")
+            else:
+                st.error("Leider falsch.")
         else:
             if sol == "perfekt kugelförmig":
                 st.success("Richtig.")
             else:
                 st.error("Leider falsch.")
+
+# ===================== 4a =====================
+elif st.session_state.task == "4a":
+    st.subheader("Aufgabe 4a")
+    choice = st.selectbox("Was prüfen?", [
+        "Packungsparameter grosse Kopfgruppe",
+        "Packungsparameter kleine Kopfgruppe"
+    ])
+    sol = st.text_input("Resultat eingeben z.B. 0.38")
+
+    if st.button("Prüfen"):
+        if choice == "Packungsparameter grosse Kopfgruppe":
+            correct = 0.33
+        else:
+            correct = 0.45
+
+        if abs(1 - float(sol) / correct) <= 0.05:
+            st.success("Richtig.")
+        else:
+            st.error("Leider falsch.")
+
+# ===================== 4b =====================
+elif st.session_state.task == "4b":
+    st.subheader("Aufgabe 4b")
+    choice = st.selectbox("Was prüfen?", [
+        "Packungsparameter grosse Kopfgruppe",
+        "Packungsparameter kleine Kopfgruppe"
+    ])
+    sol = st.text_input("Resultat eingeben z.B. 0.38")
+
+    if st.button("Prüfen"):
+        if choice == "Packungsparameter grosse Kopfgruppe":
+            correct = 0.67
+        else:
+            correct = 0.89
+
+        if abs(1 - float(sol) / correct) <= 0.05:
+            st.success("Richtig.")
+        else:
+            st.error("Leider falsch.")
 
 # ===================== 4c =====================
 elif st.session_state.task == "4c":
@@ -97,26 +137,20 @@ elif st.session_state.task == "4c":
     else:
         choice2 = None
 
-    sol = st.text_input("Resultat eingeben")
+    sol = st.text_input("Resultat eingeben z.B. 0.38")
 
     if st.button("Prüfen"):
-        try:
-            sol = float(sol)
-
-            if choice == "Radius, sphärische Mizelle [nm]":
-                correct = 2.18
-            elif choice == "Radius, zylindrische Mizelle [nm]":
-                correct = 1.95
+        if choice == "Radius, sphärische Mizelle [nm]":
+            correct = 2.18
+        elif choice == "Radius, zylindrische Mizelle [nm]":
+            correct = 1.95
+        else:
+            if choice2 == "Vesikel, grosse Kopfgruppe":
+                correct = 6.55
             else:
-                if choice2 == "Vesikel, grosse Kopfgruppe":
-                    correct = 6.55
-                else:
-                    correct = 20.06
+                correct = 20.06
 
-            if abs(1 - sol / correct) <= 0.05:
-                st.success("Richtig.")
-            else:
-                st.error("Leider falsch.")
-
-        except:
-            st.error("Bitte eine Zahl eingeben.")
+        if abs(1 - float(sol) / correct) <= 0.05:
+            st.success("Richtig.")
+        else:
+            st.error("Leider falsch.")
